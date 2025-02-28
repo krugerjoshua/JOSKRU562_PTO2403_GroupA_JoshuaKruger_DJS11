@@ -3,8 +3,8 @@ import { GENRE_MAPPING } from '../utils/constants';
 
 function GenreFilter({ selectedGenre, onGenreChange }) {
   return (
-    <div className="genre-filter">
-      <label htmlFor="genre">Filter by Genre:</label>
+    <div className="flex flex-col items-center space-y-2 md:flex-row md:space-x-4 md:space-y-0 mb-6">
+      <label htmlFor="genre" className='text-lg font-medium text-gray-700'>Filter by Genre:</label>
       <select
         id="genre"
         value={selectedGenre}
