@@ -1,6 +1,10 @@
 # 🎵 PODCAST APP | PORTFOLIO PIECE 💿
 [DJS11] Final Portfolio Piece Submission 🚀
 
+**Website link below:**
+
+[Podcast App](http://example.com)
+
 ## 🤖 Technology
 
 **This app was made using React+Vite and Tailwind for styling.** 
@@ -29,5 +33,3 @@ However, the following information is also exposed via the API
   ![alt text](https://github.com/krugerjoshua/JOSKRU562_PTO2403_GroupA_JoshuaKruger_DJS11/blob/main/Screenshots/Screenshot%202025-03-01%20221329.png)
   ![alt text](https://github.com/krugerjoshua/JOSKRU562_PTO2403_GroupA_JoshuaKruger_DJS11/blob/main/Screenshots/Screenshot%202025-03-01%20221340.png)
   ![alt text](https://github.com/krugerjoshua/JOSKRU562_PTO2403_GroupA_JoshuaKruger_DJS11/blob/main/Screenshots/Screenshot%202025-03-01%20221344.png)
-
-**This app was deployed on netlify see link below**
