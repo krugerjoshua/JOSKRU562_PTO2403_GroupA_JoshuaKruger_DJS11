@@ -3,7 +3,7 @@
 
 **Website link below:**
 
-[Podcast App](http://example.com)
+[Podcast App](https://joshuaspodcastapp.netlify.app/)
 
 ## 🤖 Technology
 
