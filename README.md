@@ -1,5 +1,5 @@
 # 🎵 PODCAST APP | PORTFOLIO PIECE 💿
-[DJS11] Starter Instructions for the Final Portfolio Piece Submission 🚀
+[DJS11] Final Portfolio Piece Submission 🚀
 
 ## 🤖 Technology
 
@@ -26,6 +26,8 @@ However, the following information is also exposed via the API
 - Shows pops up when you click on any show title where you can see the show description and a drop down to select different seasons. User will also notice that each season has its own image. Audio player is below each episode title and will remembere where one stopped listening. There is also a Add to Favorites button where it will be added to user's favorites.
 - Favorites is where user will find all the episodes that was added to favorites. Each episode is grpuped with show and season. User also have the option to sort with most recently added and A-Z.
   **See screenshots below**
-  
+  ![alt text](https://github.com/krugerjoshua/JOSKRU562_PTO2403_GroupA_JoshuaKruger_DJS11/blob/main/Screenshots/Screenshot%202025-03-01%20221329.png)
+  ![alt text](https://github.com/krugerjoshua/JOSKRU562_PTO2403_GroupA_JoshuaKruger_DJS11/blob/main/Screenshots/Screenshot%202025-03-01%20221340.png)
+  ![alt text](https://github.com/krugerjoshua/JOSKRU562_PTO2403_GroupA_JoshuaKruger_DJS11/blob/main/Screenshots/Screenshot%202025-03-01%20221344.png)
 
 **This app was deployed on netlify see link below**
