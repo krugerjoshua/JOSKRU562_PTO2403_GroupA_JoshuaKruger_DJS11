@@ -29,8 +29,8 @@ However, the following information is also exposed via the API
 - Home page is where you will be greeted with a simple desing that is responsive to different screen sizes. It has a header with links to different pages and reccomendations carousel. Underneath that is a search bar to search for shows. User also has the option to sort titles A-Z and date added. Filter by genre is also available with a drop down list.
 - Shows pops up when you click on any show title where you can see the show description and a drop down to select different seasons. User will also notice that each season has its own image. Audio player is below each episode title and will remembere where one stopped listening. There is also a Add to Favorites button where it will be added to user's favorites.
 - Favorites is where user will find all the episodes that was added to favorites. Each episode is grpuped with show and season. User also have the option to sort with most recently added and A-Z.
-  
-  **See screenshots below**
+
+  ##See screenshots below
   
   ![alt text](https://github.com/krugerjoshua/JOSKRU562_PTO2403_GroupA_JoshuaKruger_DJS11/blob/main/Screenshots/Screenshot%202025-03-01%20221329.png)
   ![alt text](https://github.com/krugerjoshua/JOSKRU562_PTO2403_GroupA_JoshuaKruger_DJS11/blob/main/Screenshots/Screenshot%202025-03-01%20221340.png)
