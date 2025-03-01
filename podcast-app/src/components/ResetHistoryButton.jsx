@@ -1,9 +1,8 @@
-import { useNavigate } from "react-router-dom";
+// ResetHistoryButton.jsx
+import React from "react";
 
-export default function Footer() {
-  const navigate = useNavigate();
-
-  const handleResetHistory = () => {
+function ResetHistoryButton() {
+  const handleResetListeningHistory = () => {
     const confirmed = window.confirm(
       "Are you sure you want to reset your entire listening history? This will remove all your progress and completed marks. This action cannot be undone."
     );
@@ -16,19 +15,20 @@ export default function Footer() {
       });
       // Remove the completed episodes data
       localStorage.removeItem("completedEpisodes");
-      navigate("/");
+      // Optionally, you can refresh the page or update app state to reflect changes
+      window.location.reload();
+      comsole.log("History Resetted ✅")
     }
   };
 
   return (
-    <footer className="bg-blue-950 text-white text-center py-4 mt-10 border-gray-700">
-      <button
-        onClick={handleResetHistory}
-        className="hover:underline hover:text-gray-300 transition"
-      >
-        ⚠️ Reset History
-      </button>
-      <p className="text-sm">&copy; 2023 Podcast App. All rights reserved.</p>
-    </footer>
+    <button
+      onClick={handleResetListeningHistory}
+      className="px-4 py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700 transition"
+    >
+      Reset Listening History
+    </button>
   );
 }
+
+export default ResetHistoryButton;

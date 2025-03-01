@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-
 export default function Header() {
     return (
       <header className="bg-gradient-to-r from-blue-900 to-blue-700 text-white font-mono text-xl font-bold shadow-lg p-4 rounded-b-2xl">

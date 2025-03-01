@@ -24,32 +24,29 @@ function FavoritesPage() {
     const [sortOption, setSortOption] = useState("recent");
 
     useEffect(() => {
-        setLocalFavorites({ ...favorites }); // Ensure UI updates when favorites change
+        setLocalFavorites({ ...favorites }); // Update local state when favorites change
     }, [favorites]);
 
-    // Sorting Function: Sort Favorites by Date or Title
+    // Sorting function: by recently updated or title.
     const sortedFavorites = Object.values(localFavorites).sort((a, b) => {
         if (sortOption === "recent") {
             return sortOrder === "desc"
-                ? new Date(b.addedAt) - new Date(a.addedAt) // Newest First
-                : new Date(a.addedAt) - new Date(b.addedAt); // Oldest First
+                ? new Date(b.addedAt) - new Date(a.addedAt) // Newest first
+                : new Date(a.addedAt) - new Date(b.addedAt); // Oldest first
         } else {
             return sortOrder === "asc"
-                ? a.title.localeCompare(b.title) // A-Z
-                : b.title.localeCompare(a.title); // Z-A
+                ? a.title.localeCompare(b.title)
+                : b.title.localeCompare(a.title);
         }
     });
 
-    // ** Group episodes by Show and Season **
+    // Group favorites by show and season.
     const groupedEpisodes = sortedFavorites.reduce((acc, episode) => {
         const showKey = episode.showTitle;
         const seasonKey = episode.seasonTitle;
-
         if (!acc[showKey]) acc[showKey] = {};
         if (!acc[showKey][seasonKey]) acc[showKey][seasonKey] = [];
-
         acc[showKey][seasonKey].push(episode);
-
         return acc;
     }, {});
 
@@ -59,11 +56,9 @@ function FavoritesPage() {
                 Favorite Episodes
             </h2>
 
-            {/* 🔄 Sorting Options */}
+            {/* Sorting Options */}
             <div className="mb-4 flex flex-col md:flex-row md:items-center space-y-2 md:space-y-0 md:space-x-4">
                 <span className="text-lg font-semibold text-gray-700">📅 Sort By:</span>
-                
-                {/* Dropdown for Sorting Method */}
                 <select
                     value={sortOption}
                     onChange={(e) => setSortOption(e.target.value)}
@@ -72,8 +67,6 @@ function FavoritesPage() {
                     <option value="recent">Most Recently Updated</option>
                     <option value="title">Title (A-Z / Z-A)</option>
                 </select>
-
-                {/* Toggle Ascending / Descending */}
                 <button
                     onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
                     className="px-4 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition flex items-center"
@@ -88,65 +81,38 @@ function FavoritesPage() {
                 <div>
                     {Object.keys(groupedEpisodes).map((showTitle) => (
                         <div key={showTitle} className="mb-6">
-                            <h2 className="text-2xl font-bold text-gray-900">
-                                {showTitle}
-                            </h2>
-
-                            {Object.keys(groupedEpisodes[showTitle]).map(
-                                (seasonTitle) => (
-                                    <div
-                                        key={seasonTitle}
-                                        className="ml-4 mb-4"
-                                    >
-                                        <h3 className="text-xl font-semibold text-gray-800">
-                                            {seasonTitle}
-                                        </h3>
-
-                                        <ul className="ml-6 space-y-4">
-                                            {groupedEpisodes[showTitle][
-                                                seasonTitle
-                                            ].map((episode) => (
-                                                <li
-                                                    key={`${episode.showTitle}-${episode.seasonTitle}-${episode.episode}`}
-                                                    className="space-y-2"
-                                                >
-                                                    {/* 🎧 Episode Title */}
+                            <h2 className="text-2xl font-bold text-gray-900">{showTitle}</h2>
+                            {Object.keys(groupedEpisodes[showTitle]).map((seasonTitle) => (
+                                <div key={seasonTitle} className="ml-4 mb-4">
+                                    <h3 className="text-xl font-semibold text-gray-800">{seasonTitle}</h3>
+                                    <ul className="ml-6 space-y-4">
+                                        {groupedEpisodes[showTitle][seasonTitle].map((episode) => {
+                                            const episodeUniqueId = `${episode.showTitle}-${episode.seasonTitle}-${episode.episode}`;
+                                            return (
+                                                <li key={episodeUniqueId} className="space-y-2">
+                                                    {/* Episode Title */}
                                                     <h4 className="text-lg font-semibold text-blue-700">
                                                         {episode.title}
                                                     </h4>
-
+                                                    {/* Episode Description */}
                                                     <p className="text-gray-500 text-sm">
                                                         {episode.description}
                                                     </p>
-
-                                                    {/* 🔊 Audio Player */}
-                                                    <AudioPlayer
-                                                        src={episode.file}
-                                                    />
-
-                                                    {/* 📅 Added Date & Time */}
+                                                    {/* Audio Player */}
+                                                    <AudioPlayer src={episode.file} />
+                                                    {/* Added Timestamp */}
                                                     <p className="text-gray-500 text-xs">
-                                                        📌 Added:{" "}
-                                                        {formatDate(
-                                                            episode.addedAt
-                                                        )}
+                                                        📌 Added: {formatDate(episode.addedAt)}
                                                     </p>
-
-                                                    {/* 🔗 Link to Show Page */}
+                                                    {/* Link to Show Page */}
                                                     {episode.showId ? (
-                                                        <Link
-                                                            to={`/show/${episode.showId}`}
-                                                            className="text-blue-500 underline"
-                                                        >
+                                                        <Link to={`/show/${episode.showId}`} className="text-blue-500 underline">
                                                             View Show
                                                         </Link>
                                                     ) : (
-                                                        <span className="text-gray-500">
-                                                            Show ID Missing
-                                                        </span>
+                                                        <span className="text-gray-500">Show ID Missing</span>
                                                     )}
-
-                                                    {/* ❌ Remove from Favorites Button */}
+                                                    {/* Remove from Favorites */}
                                                     <button
                                                         onClick={() => {
                                                             toggleFavorite(
@@ -161,11 +127,11 @@ function FavoritesPage() {
                                                         Remove
                                                     </button>
                                                 </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                )
-                            )}
+                                            );
+                                        })}
+                                    </ul>
+                                </div>
+                            ))}
                         </div>
                     ))}
                 </div>
