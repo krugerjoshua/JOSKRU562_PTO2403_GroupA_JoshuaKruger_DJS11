@@ -103,7 +103,7 @@ export default function Home() {
           {/* Genre Filter */}
           <div className="mb-8">
             <h3 className="text-2xl font-bold text-gray-700 mb-3">
-              🎧 Filter by Genre
+              Filter by Genre
             </h3>
             <GenreFilter
               selectedGenre={selectedGenre}
@@ -111,20 +111,10 @@ export default function Home() {
             />
           </div>
 
-          {/* Sorting Button */}
-          <div className="mb-8">
-            <button
-              onClick={toggleSortOrder}
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
-            >
-              Sort {sortOrder === "asc" ? "Descending" : "Ascending"}
-            </button>
-          </div>
-
           {/* Shows List */}
           <div>
             <h3 className="text-2xl font-bold text-gray-700 mb-4">
-              📻 Available Shows
+              Available Shows
             </h3>
             <ShowList shows={filteredShows} />
           </div>
